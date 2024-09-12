@@ -1,0 +1,85 @@
+/* Gruppenmitglieder:
+1.	Ramy Abdelhakim Elsaed Mohamed Ahmed (7215780)
+2.	Warnakulasooriya Christian Rodrigo (7206373) 
+*/
+
+-- Set date and timestamp formats
+ALTER SESSION SET NLS_DATE_FORMAT='DD.MM.YYYY';
+ALTER SESSION SET NLS_TIMESTAMP_FORMAT='DD.MM.YYYY HH24:MI:SS.FF';
+
+-- Drop tables with cascade constraints
+DROP TABLE Student CASCADE CONSTRAINTS;
+DROP TABLE Wohnung CASCADE CONSTRAINTS;
+DROP TABLE Wohnungskategorie CASCADE CONSTRAINTS;
+DROP TABLE Wohnheim CASCADE CONSTRAINTS;
+DROP TABLE Mitarbeiter CASCADE CONSTRAINTS;
+
+CREATE TABLE Wohnungskategorie (
+  KategorieKrz   CHAR(3) PRIMARY KEY,
+  Bezeichnung    VARCHAR(50) NOT NULL,
+  Oberkategorie CHAR(3),
+  FOREIGN KEY (Oberkategorie) REFERENCES Wohnungskategorie (KategorieKrz) ON DELETE SET NULL
+);
+
+CREATE TABLE Wohnheim (
+  Wohnheimnummer INTEGER PRIMARY KEY,
+  Wohnheimname  VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Wohnung (
+  Wohnungsnummer VARCHAR(10) NOT NULL,
+  AnzahlZimmer   INTEGER,
+  KategorieKrz   CHAR(3) NOT NULL,
+  Wohnheimnummer INTEGER NOT NULL,
+  PRIMARY KEY (Wohnungsnummer, Wohnheimnummer),
+  FOREIGN KEY (KategorieKrz) REFERENCES Wohnungskategorie(KategorieKrz) ON DELETE SET NULL,
+  FOREIGN KEY (Wohnheimnummer) REFERENCES Wohnheim(Wohnheimnummer) ON DELETE CASCADE
+);
+
+CREATE TABLE Student (
+  Student_ID       INTEGER PRIMARY KEY,
+  Anrede           CHAR(4) CHECK (Anrede IN ('Herr', 'Frau')),
+  Vorname          VARCHAR2(50) NOT NULL,
+  Nachname         VARCHAR2(30) NOT NULL,
+  Geburtsdatum     DATE,
+  email            VARCHAR2(30) UNIQUE,
+  Wohnungsnummer   VARCHAR(10) NOT NULL,
+  Wohnheimnummer   INTEGER NOT NULL,
+  FOREIGN KEY (Wohnungsnummer,Wohnheimnummer) REFERENCES Wohnung (Wohnungsnummer,Wohnheimnummer) ON DELETE CASCADE
+);
+
+CREATE TABLE Mitarbeiter (
+  Mitarbeiter_ID  INTEGER PRIMARY KEY,
+  Email           VARCHAR(30),
+  vorname         VARCHAR(30) NOT NULL,
+  Nachname        VARCHAR(30) DEFAULT 'N.N.',
+  Rolle           VARCHAR(30) CHECK (Rolle IN ('Hausmeister', 'Wohnheimverwalter')),
+  wohnheimnummer  INTEGER NOT NULL,
+  FOREIGN KEY (wohnheimnummer) REFERENCES Wohnheim(Wohnheimnummer) ON DELETE CASCADE
+);
+
+-- Insert data into Wohnheim table
+INSERT INTO Wohnheim (Wohnheimnummer, Wohnheimname) VALUES (1, 'Basekamp');
+INSERT INTO Wohnheim (Wohnheimnummer, Wohnheimname) VALUES (2, 'Basekamp');
+INSERT INTO Wohnheim (Wohnheimnummer, Wohnheimname) VALUES (3, 'Brackel');
+
+-- Insert data into Mitarbeiter table
+INSERT INTO Mitarbeiter (Mitarbeiter_ID, Email, vorname, Nachname, Rolle, wohnheimnummer) VALUES (1, 'Mitarbeiter1@email.com', 'Ramy', 'Ahmed', 'Hausmeister', 1);
+INSERT INTO Mitarbeiter (Mitarbeiter_ID, Email, vorname, Nachname, Rolle, wohnheimnummer) VALUES (2, 'Mitarbeiter2@email.com', 'Christian', 'Rodrigo', 'Wohnheimverwalter', 2);
+INSERT INTO Mitarbeiter (Mitarbeiter_ID, Email, vorname, Nachname, Rolle, wohnheimnummer) VALUES (3, 'Mitarbeiter3@email.com', 'Lionel', 'Messi', 'Wohnheimverwalter', 1);
+
+-- Insert data into Wohnungskategorie table
+INSERT INTO Wohnungskategorie (KategorieKrz, Bezeichnung, Oberkategorie) VALUES ('WG', 'Wohngemeinschaft', NULL);
+INSERT INTO Wohnungskategorie (KategorieKrz, Bezeichnung, Oberkategorie) VALUES ('WGM', 'WG-Männer', 'WG');
+INSERT INTO Wohnungskategorie (KategorieKrz, Bezeichnung, Oberkategorie) VALUES ('WGF', 'WG-Frauen', 'WG');
+
+-- Insert data into Wohnung table
+INSERT INTO Wohnung (Wohnungsnummer, AnzahlZimmer, KategorieKrz, Wohnheimnummer) VALUES ('1', 3, 'WGM', 1);
+INSERT INTO Wohnung (Wohnungsnummer, AnzahlZimmer, KategorieKrz, Wohnheimnummer) VALUES ('2', 2, 'WGM', 1);
+INSERT INTO Wohnung (Wohnungsnummer, AnzahlZimmer, KategorieKrz, Wohnheimnummer) VALUES ('3', 3, 'WGF', 2);
+
+-- Insert data into Student table
+INSERT INTO Student (Student_ID, Anrede, Vorname, Nachname, Geburtsdatum, email, Wohnungsnummer, Wohnheimnummer) VALUES (1, 'Herr', 'Marco', 'Reus', TO_DATE('01.01.1990', 'DD.MM.YYYY'), 'student1@email.com', '1', 1);
+INSERT INTO Student (Student_ID, Anrede, Vorname, Nachname, Geburtsdatum, email, Wohnungsnummer, Wohnheimnummer) VALUES (2, 'Herr', 'Niclas', 'Fullkrug', TO_DATE('01.02.1995', 'DD.MM.YYYY'), 'student2@email.com', '2', 1);
+INSERT INTO Student (Student_ID, Anrede, Vorname, Nachname, Geburtsdatum, email, Wohnungsnummer, Wohnheimnummer) VALUES (3, 'Herr', 'Alexander', 'Meyer', TO_DATE('10.02.1993', 'DD.MM.YYYY'), 'student3@email.com', '3', 2);
+COMMIT;

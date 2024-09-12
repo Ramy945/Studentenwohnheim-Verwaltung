@@ -1,0 +1,247 @@
+Timestamp: 03.11.2023 21:46:45
+SQL-Command: SELECT * FROM Kunde WHERE Kundennummer = 2310
+
+
+Timestamp: 03.11.2023 21:46:45
+Error Message: ORA-17006: Ungültiger Spaltenname
+https://docs.oracle.com/error-help/db/ora-17006/
+Stack Trace:
+java.sql.SQLException: ORA-17006: Ungültiger Spaltenname
+https://docs.oracle.com/error-help/db/ora-17006/
+	at oracle.jdbc.driver.OracleStatement.getColumnIndexPrimitive(OracleStatement.java:4908)
+	at oracle.jdbc.driver.OracleStatement.getColumnIndex(OracleStatement.java:4866)
+	at oracle.jdbc.driver.InsensitiveScrollableResultSet.findColumn(InsensitiveScrollableResultSet.java:370)
+	at oracle.jdbc.driver.GeneratedResultSet.getString(GeneratedResultSet.java:648)
+	at datenhaltungsschicht.DBZugriffKunde.getEmail(DBZugriffKunde.java:163)
+	at datenhaltungsschicht.DBZugriffKunde.getKundeByKundennummer(DBZugriffKunde.java:115)
+	at logikschicht.Kundenverwaltung.getKundeByKundennummer(Kundenverwaltung.java:54)
+	at praesentationsschicht.KonsolenMenue.startMenu(KonsolenMenue.java:169)
+	at Main.main(Main.java:7)
+
+
+Timestamp: 03.11.2023 21:46:45
+Error Message: Es ist ein Fehler beim Lesen der Kundendaten aufgetreten. 
+Stack Trace:
+java.lang.Exception: Es ist ein Fehler beim Lesen der Kundendaten aufgetreten. 
+	at datenhaltungsschicht.DBZugriffKunde.getKundeByKundennummer(DBZugriffKunde.java:125)
+	at logikschicht.Kundenverwaltung.getKundeByKundennummer(Kundenverwaltung.java:54)
+	at praesentationsschicht.KonsolenMenue.startMenu(KonsolenMenue.java:169)
+	at Main.main(Main.java:7)
+
+
+Timestamp: 14.11.2023 20:52:37
+SQL-Command: Select * FROM Kunde
+
+
+Timestamp: 14.11.2023 20:52:59
+SQL-Command: SELECT * FROM Kunde WHERE Kundennummer = 1
+
+
+Timestamp: 14.11.2023 20:52:59
+SQL-Command: DELETE FROM Kunde WHERE Kundennummer = 1
+
+
+Timestamp: 14.11.2023 20:52:59
+Error Message: ORA-02292: Integritäts-Constraint (C##FBPOOL1.SYS_C00112101) verletzt - untergeordneter Datensatz gefunden
+
+https://docs.oracle.com/error-help/db/ora-02292/
+Stack Trace:
+java.sql.SQLIntegrityConstraintViolationException: ORA-02292: Integritäts-Constraint (C##FBPOOL1.SYS_C00112101) verletzt - untergeordneter Datensatz gefunden
+
+https://docs.oracle.com/error-help/db/ora-02292/
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:702)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1330)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1102)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:456)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:498)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:190)
+	at oracle.jdbc.driver.T4CStatement.executeForRows(T4CStatement.java:1368)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1958)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1594)
+	at oracle.jdbc.driver.OracleStatement.executeUpdateInternal(OracleStatement.java:2552)
+	at oracle.jdbc.driver.OracleStatement.executeLargeUpdate(OracleStatement.java:2511)
+	at oracle.jdbc.driver.OracleStatement.executeUpdate(OracleStatement.java:2495)
+	at oracle.jdbc.driver.OracleStatementWrapper.executeUpdate(OracleStatementWrapper.java:322)
+	at datenhaltungsschicht.DBZugriffKunde.delete(DBZugriffKunde.java:58)
+	at logikschicht.Kundenverwaltung.deleteKunde(Kundenverwaltung.java:43)
+	at praesentationsschicht.KonsolenMenue.startMenu(KonsolenMenue.java:149)
+	at Main.main(Main.java:7)
+Caused by: Error : 2292, Position : 0, SQL = DELETE FROM Kunde WHERE Kundennummer = 1, Original SQL = DELETE FROM Kunde WHERE Kundennummer = 1, Error Message = ORA-02292: Integritäts-Constraint (C##FBPOOL1.SYS_C00112101) verletzt - untergeordneter Datensatz gefunden
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	... 17 more
+
+
+Timestamp: 14.11.2023 20:52:59
+Error Message: Es ist ein Fehler beim Löschen des Kunden 1 aufgetreten.
+Stack Trace:
+java.lang.Exception: Es ist ein Fehler beim Löschen des Kunden 1 aufgetreten.
+	at datenhaltungsschicht.DBZugriffKunde.delete(DBZugriffKunde.java:62)
+	at logikschicht.Kundenverwaltung.deleteKunde(Kundenverwaltung.java:43)
+	at praesentationsschicht.KonsolenMenue.startMenu(KonsolenMenue.java:149)
+	at Main.main(Main.java:7)
+
+
+Timestamp: 14.11.2023 20:56:59
+SQL-Command: Select * FROM Kunde
+
+
+Timestamp: 14.11.2023 20:57:21
+SQL-Command: SELECT * FROM Kunde WHERE Kundennummer = 1
+
+
+Timestamp: 14.11.2023 20:57:21
+SQL-Command: DELETE FROM Kunde WHERE Kundennummer = 1
+
+
+Timestamp: 14.11.2023 20:57:21
+Error Message: ORA-02292: Integritäts-Constraint (C##FBPOOL1.SYS_C00112101) verletzt - untergeordneter Datensatz gefunden
+
+https://docs.oracle.com/error-help/db/ora-02292/
+Stack Trace:
+java.sql.SQLIntegrityConstraintViolationException: ORA-02292: Integritäts-Constraint (C##FBPOOL1.SYS_C00112101) verletzt - untergeordneter Datensatz gefunden
+
+https://docs.oracle.com/error-help/db/ora-02292/
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:702)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1330)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1102)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:456)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:498)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:190)
+	at oracle.jdbc.driver.T4CStatement.executeForRows(T4CStatement.java:1368)
+	at oracle.jdbc.driver.OracleStatement.executeSQLStatement(OracleStatement.java:1958)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1594)
+	at oracle.jdbc.driver.OracleStatement.executeUpdateInternal(OracleStatement.java:2552)
+	at oracle.jdbc.driver.OracleStatement.executeLargeUpdate(OracleStatement.java:2511)
+	at oracle.jdbc.driver.OracleStatement.executeUpdate(OracleStatement.java:2495)
+	at oracle.jdbc.driver.OracleStatementWrapper.executeUpdate(OracleStatementWrapper.java:322)
+	at datenhaltungsschicht.DBZugriffKunde.delete(DBZugriffKunde.java:58)
+	at logikschicht.Kundenverwaltung.deleteKunde(Kundenverwaltung.java:43)
+	at praesentationsschicht.KonsolenMenue.startMenu(KonsolenMenue.java:149)
+	at Main.main(Main.java:7)
+Caused by: Error : 2292, Position : 0, SQL = DELETE FROM Kunde WHERE Kundennummer = 1, Original SQL = DELETE FROM Kunde WHERE Kundennummer = 1, Error Message = ORA-02292: Integritäts-Constraint (C##FBPOOL1.SYS_C00112101) verletzt - untergeordneter Datensatz gefunden
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	... 17 more
+
+
+Timestamp: 14.11.2023 20:57:21
+Error Message: Es ist ein Fehler beim Löschen des Kunden 1 aufgetreten. SQL-Fehler: ORA-02292: Integritäts-Constraint (C##FBPOOL1.SYS_C00112101) verletzt - untergeordneter Datensatz gefunden
+
+https://docs.oracle.com/error-help/db/ora-02292/
+Stack Trace:
+java.sql.SQLException: Es ist ein Fehler beim Löschen des Kunden 1 aufgetreten. SQL-Fehler: ORA-02292: Integritäts-Constraint (C##FBPOOL1.SYS_C00112101) verletzt - untergeordneter Datensatz gefunden
+
+https://docs.oracle.com/error-help/db/ora-02292/
+	at datenhaltungsschicht.DBZugriffKunde.delete(DBZugriffKunde.java:62)
+	at logikschicht.Kundenverwaltung.deleteKunde(Kundenverwaltung.java:43)
+	at praesentationsschicht.KonsolenMenue.startMenu(KonsolenMenue.java:149)
+	at Main.main(Main.java:7)
+
+
+Timestamp: 14.11.2023 21:01:39
+SQL-Command: Select * FROM Kunde
+
+
+Timestamp: 14.11.2023 21:02:15
+SQL-Command: Select * FROM Kunde
+
+
+Timestamp: 20.11.2023 15:05:47
+Error Message: ORA-12541: Verbindung kann nicht hergestellt werden. Kein Listener bei host 172.22.160.22 port 1521. (CONNECTION_ID=SrWLJh0rSsq7JzUQTqBclA==)
+https://docs.oracle.com/error-help/db/ora-12541/
+Stack Trace:
+java.sql.SQLException: ORA-12541: Verbindung kann nicht hergestellt werden. Kein Listener bei host 172.22.160.22 port 1521. (CONNECTION_ID=SrWLJh0rSsq7JzUQTqBclA==)
+https://docs.oracle.com/error-help/db/ora-12541/
+	at oracle.jdbc.driver.T4CConnection.handleLogonNetException(T4CConnection.java:1398)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:991)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:1157)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:104)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:825)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:651)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at datenhaltungsschicht.DBZugriff.connect(DBZugriff.java:14)
+	at datenhaltungsschicht.DBZugriffKategorie.getAllKategorie(DBZugriffKategorie.java:25)
+	at logikschicht.Kategorieverwaltung.getAllKategorie(Kategorieverwaltung.java:12)
+	at praesentationsschicht.KonsolenMenueWohnheimVerwaltung.subMenuWohnungskategorie(KonsolenMenueWohnheimVerwaltung.java:151)
+	at praesentationsschicht.KonsolenMenueWohnheimVerwaltung.StartMenue(KonsolenMenueWohnheimVerwaltung.java:49)
+	at Main.main(Main.java:7)
+Caused by: oracle.net.ns.NetException: ORA-12541: Verbindung kann nicht hergestellt werden. Kein Listener bei host 172.22.160.22 port 1521. (CONNECTION_ID=SrWLJh0rSsq7JzUQTqBclA==)
+https://docs.oracle.com/error-help/db/ora-12541/
+	at oracle.net.nt.TcpNTAdapter.establishSocket(TcpNTAdapter.java:311)
+	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:222)
+	at oracle.net.nt.ConnOption.connect(ConnOption.java:327)
+	at oracle.net.nt.ConnStrategy.executeConnOption(ConnStrategy.java:1144)
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:718)
+	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:707)
+	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:938)
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:327)
+	at oracle.jdbc.driver.T4CConnection.connectNetworkSessionProtocol(T4CConnection.java:3185)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:926)
+	... 12 more
+
+
+Timestamp: 20.11.2023 15:06:05
+SQL-Command: Select * FROM Wohnungskategorie
+
+
+Timestamp: 21.11.2023 11:17:58
+SQL-Command: Select * FROM Wohnungskategorie
+
+
+Timestamp: 21.11.2023 11:18:11
+SQL-Command: Select * FROM Wohnungskategorie
+
+
+Timestamp: 21.11.2023 11:19:07
+SQL-Command: Select * FROM Wohnungskategorie
+
+
+Timestamp: 21.11.2023 11:19:42
+SQL-Command: SELECT * FROM Wohnungskategorie WHERE kategorieKrz = WGM
+
+
+Timestamp: 21.11.2023 11:19:42
+Error Message: ORA-00904: "WGM": ungültige ID
+
+https://docs.oracle.com/error-help/db/ora-00904/
+Stack Trace:
+java.sql.SQLSyntaxErrorException: ORA-00904: "WGM": ungültige ID
+
+https://docs.oracle.com/error-help/db/ora-00904/
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:702)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1330)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1102)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:456)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:498)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:190)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:1115)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1390)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1269)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1794)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1592)
+	at oracle.jdbc.driver.OracleStatement.executeQuery(OracleStatement.java:2165)
+	at oracle.jdbc.driver.OracleStatementWrapper.executeQuery(OracleStatementWrapper.java:384)
+	at datenhaltungsschicht.DBZugriffKategorie.getkategorieByKategroieKrz(DBZugriffKategorie.java:93)
+	at logikschicht.Kategorieverwaltung.getkategorieByKategoriekrz(Kategorieverwaltung.java:26)
+	at praesentationsschicht.KonsolenMenueWohnheimVerwaltung.subMenuWohnungskategorie(KonsolenMenueWohnheimVerwaltung.java:138)
+	at praesentationsschicht.KonsolenMenueWohnheimVerwaltung.StartMenue(KonsolenMenueWohnheimVerwaltung.java:49)
+	at Main.main(Main.java:7)
+Caused by: Error : 904, Position : 53, SQL = SELECT * FROM Wohnungskategorie WHERE kategorieKrz = WGM, Original SQL = SELECT * FROM Wohnungskategorie WHERE kategorieKrz = WGM, Error Message = ORA-00904: "WGM": ungültige ID
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	... 18 more
+
+
+Timestamp: 21.11.2023 11:20:13
+SQL-Command: INSERT INTO Wohnungskategorie (KategorieKrz, Bezeichnung ,Oberkategorie) VALUES ('WW', 'sdfds', 'WGM')
+
+
+Timestamp: 21.11.2023 11:20:45
+SQL-Command: Select * FROM Wohnungskategorie
+
+
